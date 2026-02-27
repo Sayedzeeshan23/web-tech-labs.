@@ -1,17 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <title>Lab 02 Portfolio - Sayed Zeeshan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #00509e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            margin: 15px auto;
+            padding: 20px;
+            width: 60%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Welcome to My Lab 02 Website</h1>
+<header>
+    <h1>Lab 02 - Web Technologies</h1>
+    <p>CS 224L | University of Engineering & Technology, Peshawar</p>
+</header>
 
-<ul>
-    <li><a href="profile.html">Profile</a></li>
-    <li><a href="schedule.html">Schedule</a></li>
-    <li><a href="registration.html">Registration</a></li>
-</ul>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="Lab02/profile.html">Profile</a>
+    <a href="Lab02/registration.html">Register</a>
+    <a href="Lab02/schedule.html">Schedule</a>
+    <a href="Lab02/lab02.html">Lab 02</a>
+</nav>
+
+<section>
+    <h2>Welcome to My Lab 02 Website</h2>
+    <p>
+        This website contains all exercises and lab tasks completed 
+        for Lab 02 of Web Technologies.
+    </p>
+
+    <div class="card">
+        <h3>👤 Profile Page</h3>
+        <p>View personal information and contact details.</p>
+        <a href="Lab02/profile.html">Go to Profile</a>
+    </div>
+
+    <div class="card">
+        <h3>📅 Course Schedule</h3>
+        <p>Weekly timetable with courses and time slots.</p>
+        <a href="Lab02/schedule.html">View Schedule</a>
+    </div>
+
+    <div class="card">
+        <h3>📝 Registration Form</h3>
+        <p>Student registration form with input fields.</p>
+        <a href="Lab02/registration.html">Open Form</a>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Sayed Zeeshan | Web Technologies Lab 02</p>
+</footer>
 
 </body>
 </html>
