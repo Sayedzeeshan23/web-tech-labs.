@@ -1,32 +1,348 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Profile</title>
+    <title>My Profile - Sayed Zeeshan Haider</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        nav a:active {
+            transform: translateY(0);
+        }
+
+        nav span.separator {
+            color: #cbd5e0;
+            font-weight: 300;
+        }
+
+        hr {
+            display: none; /* Hide the old horizontal rule */
+        }
+
+        /* Profile Container */
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Profile Header */
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .profile-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .profile-header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Profile Image Section */
+        .profile-image-section {
+            text-align: center;
+            margin-top: -60px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+            background: #f7fafc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Profile Content */
+        .profile-content {
+            padding: 40px;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .bio-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .bio-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .contact-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-item p {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item p:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Email styling */
+        .contact-email {
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-button a {
+            display: inline-block;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-button a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-button a:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            nav {
+                padding: 10px;
+                border-radius: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .profile-header h1 {
+                font-size: 2em;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-content {
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation for contact items */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-item:first-child p {
+            animation: pulse 2s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <a href="../index.html">Home</a>|
-        <a href="lab02.html">Lab 02</a> |
-        <a href="profile.html">Profile</a> |
-        <a href="schedule.html">Schedule</a> |
+        <a href="../index.html">Home</a>
+        <span class="separator">|</span>
+        <a href="lab02.html">Lab 02</a>
+        <span class="separator">|</span>
+        <a href="profile.html">Profile</a>
+        <span class="separator">|</span>
+        <a href="schedule.html">Schedule</a>
+        <span class="separator">|</span>
         <a href="registration.html">Register</a>
     </nav>
-    <hr>
 
-<h1>Sayed Zeeshan Haider</h1>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Sayed Zeeshan Haider</h1>
+            <div class="subtitle">BS Computer Science Student</div>
+        </div>
 
-<img src="profile.jpg" width="200" alt="Profile Image">
+        <div class="profile-image-section">
+            <img src="profile.jpg" class="profile-image" alt="Sayed Zeeshan Haider" onerror="this.src='https://i.pravatar.cc/200?u=1301'">
+        </div>
 
-<p>
-I am a student of BS Computer Science at UET Peshawar.
-I am learning Web Technologies.
-</p>
+        <div class="profile-content">
+            <div class="bio-section">
+                <p>
+                    I am a student of BS Computer Science at UET Peshawar, 
+                    passionate about web technologies and software development. 
+                    Currently learning HTML, CSS, and JavaScript to build 
+                    amazing web applications.
+                </p>
+            </div>
 
-<h3>Contact Information</h3>
-<p>Email: 24pwbcs1301@uetpeshawar.edu.pk</p>
-<p>Phone: 03209659418</p>
+            <div class="contact-section">
+                <h3>📞 Contact Information</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <p class="contact-email">24pwbcs1301@uetpeshawar.edu.pk</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <p>03209659418</p>
+                    </div>
+                </div>
+            </div>
 
-<a href="index.html">Back to Home</a>
-
+            <div class="back-button">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
