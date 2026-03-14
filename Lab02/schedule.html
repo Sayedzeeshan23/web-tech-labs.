@@ -2,6 +2,413 @@
 <html>
 <head>
     <title>Course Schedule</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        nav a:active {
+            transform: translateY(0);
+        }
+
+        /* Hide the old horizontal rule */
+        hr {
+            display: none;
+        }
+
+        /* Main Container */
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .schedule-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .schedule-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .schedule-header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Table Section */
+        .table-section {
+            padding: 30px;
+        }
+
+        /* Table Styling */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            margin: 20px 0;
+        }
+
+        /* Table Header */
+        .schedule-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+            border: none;
+        }
+
+        /* Table Cells */
+        .schedule-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* Time column styling */
+        .schedule-table td:first-child {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+
+        /* Regular cells */
+        .schedule-table td:not(:first-child) {
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Zebra striping for rows */
+        .schedule-table tr:nth-child(even) td:not(:first-child) {
+            background: #f8f9fa;
+        }
+
+        /* Hover effects */
+        .schedule-table tr:hover td:not(:first-child) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Course styling */
+        .course-web {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-web::before {
+            content: '🌐';
+            margin-right: 5px;
+        }
+
+        .course-ai {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-ai::before {
+            content: '🤖';
+            margin-right: 5px;
+        }
+
+        /* Lunch Break special styling */
+        .lunch-break {
+            background: linear-gradient(135deg, #ffd166 0%, #f8c630 100%) !important;
+            color: #2c3e50 !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .lunch-break::before {
+            content: '🍽️';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .lunch-break::after {
+            content: '🍕';
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Free period styling */
+        .free-period {
+            background: linear-gradient(135deg, #a8e6cf 0%, #d4edda 100%) !important;
+            color: #155724 !important;
+            font-weight: bold;
+        }
+
+        .free-period::before {
+            content: '✨';
+            margin-right: 5px;
+        }
+
+        /* Table Footer */
+        .table-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .legend-color.web { background: #667eea; }
+        .legend-color.ai { background: #f5576c; }
+        .legend-color.lunch { background: #ffd166; }
+        .legend-color.free { background: #a8e6cf; }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .back-button a {
+            display: inline-block;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-button a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-button a:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            nav {
+                padding: 10px;
+                border-radius: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 3px;
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .schedule-header h1 {
+                font-size: 2em;
+            }
+
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .schedule-table td,
+            .schedule-table th {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .table-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .legend {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .stats {
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+
+        /* Animation for table rows */
+        @keyframes rowPulse {
+            0% { background: white; }
+            50% { background: #f0f4ff; }
+            100% { background: white; }
+        }
+
+        .schedule-table tr:first-child:hover {
+            animation: rowPulse 1s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* Print styles */
+        @media print {
+            nav, .back-button, .table-footer {
+                display: none;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .schedule-container {
+                box-shadow: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -11,37 +418,104 @@
         <a href="schedule.html">Schedule</a> |
         <a href="registration.html">Register</a>
     </nav>
-    <hr>
 
-<h1>Weekly Schedule</h1>
+    <div class="schedule-container">
+        <div class="schedule-header">
+            <h1>Weekly Schedule</h1>
+            <div class="subtitle">Fall Semester 2024</div>
+        </div>
 
-<table border="1">
-<tr>
-<th>Time</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-</tr>
+        <div class="table-section">
+            <table class="schedule-table" border="1">
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
 
-<tr>
-<td>9-10</td>
-<td>Web Tech</td>
-<td>AI</td>
-<td>Web Tech</td>
-<td>AI</td>
-<td>Free</td>
-</tr>
+                <tr>
+                    <td>9:00 - 10:00</td>
+                    <td class="course-web">🌐 Web Tech</td>
+                    <td class="course-ai">🤖 AI</td>
+                    <td class="course-web">🌐 Web Tech</td>
+                    <td class="course-ai">🤖 AI</td>
+                    <td class="free-period">✨ Free</td>
+                </tr>
 
-<tr>
-<td>1-2</td>
-<td colspan="5">Lunch Break</td>
-</tr>
+                <tr>
+                    <td>10:00 - 11:00</td>
+                    <td class="course-web">🌐 Web Tech</td>
+                    <td class="course-ai">🤖 AI</td>
+                    <td class="course-web">🌐 Web Tech</td>
+                    <td class="course-ai">🤖 AI</td>
+                    <td class="free-period">✨ Free</td>
+                </tr>
 
-</table>
+                <tr>
+                    <td>11:00 - 12:00</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                </tr>
 
-<a href="index.html">Back to Home</a>
+                <tr>
+                    <td>12:00 - 1:00</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                </tr>
 
+                <tr>
+                    <td>1:00 - 2:00</td>
+                    <td colspan="5" class="lunch-break">Lunch Break</td>
+                </tr>
+
+                <tr>
+                    <td>2:00 - 3:00</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                    <td class="free-period">✨ Free</td>
+                </tr>
+            </table>
+
+            <div class="table-footer">
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color web"></div>
+                        <span>Web Technology</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color ai"></div>
+                        <span>Artificial Intelligence</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color lunch"></div>
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color free"></div>
+                        <span>Free Period</span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-box">📚 4 Courses</div>
+                    <div class="stat-box">⏰ 6 Hours/Day</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-button">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
 </body>
 </html>
