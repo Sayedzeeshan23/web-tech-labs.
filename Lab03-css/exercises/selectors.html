@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Practice</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        /* Task 1: CSS Selectors Practice */
+        
+        /* 5 Different Basic Selectors */
+        /* 1. Element Selector */
+        p {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        /* 2. Class Selector */
+        .highlight {
+            background-color: yellow;
+            padding: 5px;
+        }
+        
+        /* 3. ID Selector */
+        #main-title {
+            color: #e74c3c;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        /* 4. Universal Selector */
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* 5. Group Selector */
+        h1, h2, h3 {
+            font-family: Arial, sans-serif;
+        }
+        
+        /* 3 Attribute Selectors */
+        /* 1. [attribute] */
+        [target] {
+            border: 2px solid #3498db;
+            padding: 5px;
+        }
+        
+        /* 2. [attribute="value"] */
+        [type="text"] {
+            border: 2px solid #2ecc71;
+            padding: 8px;
+        }
+        
+        /* 3. [attribute*="value"] (contains) */
+        [class*="btn"] {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        
+        /* 4 Combinators */
+        /* 1. Descendant Combinator (space) */
+        .container p {
+            line-height: 1.8;
+        }
+        
+        /* 2. Child Combinator (>) */
+        .card > h2 {
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* 3. Adjacent Sibling Combinator (+) */
+        h1 + p {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        /* 4. General Sibling Combinator (~) */
+        h2 ~ p {
+            padding-left: 20px;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        /* 5 Pseudo-classes */
+        /* 1. Link states */
+        a:link { color: #3498db; }
+        a:visited { color: #9b59b6; }
+        a:hover { color: #e74c3c; }
+        a:active { color: #f39c12; }
+        
+        /* 2. Form states */
+        input:focus {
+            outline: 2px solid #3498db;
+            background-color: #f0f8ff;
+        }
+        
+        input:checked {
+            transform: scale(1.2);
+        }
+        
+        input:disabled {
+            background-color: #ecf0f1;
+            cursor: not-allowed;
+        }
+        
+        /* 3. Structural pseudo-classes */
+        li:first-child {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        li:last-child {
+            font-style: italic;
+            color: #e67e22;
+        }
+        
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* 4. Content-based pseudo-classes */
+        p:empty {
+            display: none;
+        }
+        
+        p:not(.highlight) {
+            margin-left: 10px;
+        }
+        
+        /* 2 Pseudo-elements */
+        /* 1. ::before and ::after */
+        .quote::before {
+            content: "“";
+            font-size: 2rem;
+            color: #3498db;
+        }
+        
+        .quote::after {
+            content: "”";
+            font-size: 2rem;
+            color: #3498db;
+        }
+        
+        /* 2. ::first-letter and ::first-line */
+        .first-letter::first-letter {
+            font-size: 3rem;
+            color: #e74c3c;
+            float: left;
+            margin-right: 5px;
+        }
+        
+        .first-line::first-line {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">CSS Selectors Practice</h1>
+        <p>This is a paragraph demonstrating CSS selectors.</p>
+        
+        <!-- Basic Selectors -->
+        <section>
+            <h2>Basic Selectors Example</h2>
+            <p class="highlight">This paragraph has a highlight class.</p>
+            <p>This is a regular paragraph.</p>
+        </section>
+        
+        <!-- Attribute Selectors -->
+        <section>
+            <h2>Attribute Selectors Example</h2>
+            <a href="#" target="_blank">Link with target attribute</a><br>
+            <input type="text" placeholder="Text input"><br>
+            <div class="btn-primary">Button styled with class containing "btn"</div>
+        </section>
+        
+        <!-- Combinators -->
+        <section>
+            <h2>Combinators Example</h2>
+            <div class="container">
+                <p>Descendant combinator example</p>
+                <div class="card">
+                    <h2>Card Title</h2>
+                    <p>Card content paragraph</p>
+                </div>
+            </div>
+            <p>Paragraph after h1 (adjacent sibling)</p>
+            <p>Another paragraph (general sibling)</p>
+        </section>
+        
+        <!-- Pseudo-classes -->
+        <section>
+            <h2>Pseudo-classes Example</h2>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+                <li>Last item</li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Focus on me"><br>
+                <input type="checkbox" checked> Checked checkbox<br>
+                <input type="text" disabled value="Disabled input">
+            </form>
+        </section>
+        
+        <!-- Pseudo-elements -->
+        <section>
+            <h2>Pseudo-elements Example</h2>
+            <p class="quote">This is a quote with before and after pseudo-elements</p>
+            <p class="first-letter">This paragraph has a styled first letter.</p>
+            <p class="first-line">This is a longer paragraph that demonstrates the first-line pseudo-element. The first line will be styled differently from the rest of the text.</p>
+        </section>
+    </div>
+</body>
+</html>

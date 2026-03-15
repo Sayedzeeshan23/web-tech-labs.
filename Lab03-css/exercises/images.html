@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Styling Portfolio</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/effects.css">
+    <style>
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        
+        .styled-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        .rounded-image {
+            border-radius: 15px;
+        }
+        
+        .circular-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+        
+        .bordered-image {
+            border: 5px solid #3498db;
+            padding: 5px;
+        }
+        
+        .shadowed-image {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hover-effect:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .image-overlay {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px black;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .image-overlay:hover .overlay-text {
+            opacity: 1;
+        }
+        
+        .image-overlay:hover img {
+            filter: brightness(0.7);
+        }
+        
+        .filter-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .filter-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .filter-gallery div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Styling Portfolio</h1>
+        
+        <!-- Rounded Corners and Circular Images -->
+        <section>
+            <h2>Rounded Corners & Circular Images</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/300/200?random=10" alt="Sample" class="styled-image rounded-image">
+                    <p>Rounded Corners (15px)</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/300/200?random=11" alt="Sample" class="circular-image">
+                    <p>Circular Image</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Image Borders and Shadows -->
+        <section>
+            <h2>Borders and Shadows</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/300/200?random=12" alt="Sample" class="styled-image bordered-image">
+                    <p>With Border</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/300/200?random=13" alt="Sample" class="styled-image shadowed-image">
+                    <p>With Shadow</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Hover Effects and Transitions -->
+        <section>
+            <h2>Hover Effects</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/300/200?random=14" alt="Sample" class="styled-image hover-effect">
+                    <p>Hover to scale</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-overlay">
+                        <img src="https://picsum.photos/300/200?random=15" alt="Sample" class="styled-image">
+                        <div class="overlay-text">Hover Text</div>
+                    </div>
+                    <p>Image with overlay text</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CSS Filters -->
+        <section>
+            <h2>CSS Filters</h2>
+            <div class="filter-gallery">
+                <div>
+                    <img src="https://picsum.photos/200/150?random=20" alt="Original">
+                    <p>Original</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=21" alt="Blur" class="filter-blur">
+                    <p>Blur (2px)</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=22" alt="Brightness" class="filter-brightness">
+                    <p>Brightness (150%)</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=23" alt="Contrast" class="filter-contrast">
+                    <p>Contrast (150%)</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=24" alt="Grayscale" class="filter-grayscale">
+                    <p>Grayscale (100%)</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=25" alt="Sepia" class="filter-sepia">
+                    <p>Sepia (100%)</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/200/150?random=26" alt="Invert" class="filter-invert">
+                    <p>Invert (100%)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

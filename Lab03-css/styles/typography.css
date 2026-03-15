@@ -1,0 +1,52 @@
+/* ===== TYPOGRAPHY CSS FILE ===== */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;600&family=Roboto:wght@100;300;400;700&display=swap');
+
+/* Font Families */
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-open-sans { font-family: 'Open Sans', sans-serif; }
+
+/* Font Sizes with different units */
+.font-size-px { font-size: 16px; }
+.font-size-em { font-size: 1.5em; }
+.font-size-rem { font-size: 1.2rem; }
+.font-size-percent { font-size: 120%; }
+
+/* Font Weights */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-bold { font-weight: 700; }
+.font-black { font-weight: 900; }
+
+/* Text Transformations */
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+/* Text Decoration */
+.text-underline { text-decoration: underline; }
+.text-line-through { text-decoration: line-through; }
+.text-overline { text-decoration: overline; }
+.text-none { text-decoration: none; }
+
+/* Text Shadow Effects */
+.text-shadow-basic {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.text-shadow-multiple {
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.text-shadow-blur {
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+/* Text Spacing */
+.line-height-normal { line-height: 1.5; }
+.line-height-double { line-height: 2; }
+.letter-spacing-wide { letter-spacing: 2px; }
+.letter-spacing-tight { letter-spacing: -0.5px; }
+.word-spacing-wide { word-spacing: 10px; }
+.text-indent { text-indent: 30px; }

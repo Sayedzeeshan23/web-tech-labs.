@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Gallery</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/effects.css">
+    <style>
+        /* Background Demonstrations */
+        .bg-solid {
+            background-color: #3498db;
+            color: white;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .bg-image-repeat {
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-repeat: repeat;
+            padding: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+            background-color: #2c3e50;
+        }
+        
+        .bg-image-no-repeat {
+            background-image: url('https://picsum.photos/1200/800?random=1');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding: 100px;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+        
+        .bg-multiple-layers {
+            background: 
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://picsum.photos/1200/800?random=2');
+            background-size: cover;
+            background-position: center;
+            padding: 100px;
+            color: white;
+        }
+        
+        .bg-attachment-fixed {
+            background-image: url('https://picsum.photos/1500/1000?random=3');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 150px;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+        
+        .bg-gradient-linear {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            padding: 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .bg-gradient-radial {
+            background: radial-gradient(circle at top left, #ff9a9e, #fad0c4, #fad0c4);
+            padding: 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .bg-blend-mode {
+            background: 
+                url('https://picsum.photos/800/400?random=4'),
+                linear-gradient(#e74c3c, #3498db);
+            background-blend-mode: multiply;
+            background-size: cover;
+            padding: 100px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Background Gallery</h1>
+        
+        <section>
+            <h2>Solid Color Backgrounds</h2>
+            <div class="bg-solid">
+                <h3>Solid Color Background</h3>
+                <p>This section has a solid background color</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Image Background with Different Repeat Patterns</h2>
+            <div class="bg-image-repeat">
+                <h3>Repeating Background</h3>
+                <p>Background image repeating pattern (cubes pattern)</p>
+            </div>
+            
+            <div class="bg-image-no-repeat">
+                <h3>Non-repeating Background</h3>
+                <p>Background image with no repeat, centered and covered</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Multiple Background Layers</h2>
+            <div class="bg-multiple-layers">
+                <h3>Multiple Layers</h3>
+                <p>Background with gradient overlay and image</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Background Attachment Fixed</h2>
+            <div class="bg-attachment-fixed">
+                <h3>Fixed Background</h3>
+                <p>Background image stays fixed while scrolling (scroll to see effect)</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Linear and Radial Gradients</h2>
+            <div class="bg-gradient-linear">
+                <h3>Linear Gradient</h3>
+                <p>45 degree linear gradient with multiple colors</p>
+            </div>
+            
+            <div class="bg-gradient-radial">
+                <h3>Radial Gradient</h3>
+                <p>Radial gradient from top left corner</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Background Blend Modes</h2>
+            <div class="bg-blend-mode">
+                <h3>Blend Mode: Multiply</h3>
+                <p>Image blended with gradient overlay</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
