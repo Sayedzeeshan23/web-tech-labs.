@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Responsive Demo</title>
+
+<link rel="stylesheet" href="../styles/responsive.css">
+<link rel="stylesheet" href="../styles/base.css">
+
+<style>
+
+.container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:20px;
+}
+
+.box{
+background:skyblue;
+padding:40px;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+.container{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Responsive Layout</h1>
+
+<div class="container">
+
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+<div class="box">5</div>
+<div class="box">6</div>
+
+</div>
+
+</body>
+</html>

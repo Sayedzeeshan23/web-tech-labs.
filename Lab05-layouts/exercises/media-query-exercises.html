@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Media Query Exercises</title>
+
+<link rel="stylesheet" href="../styles/media_queries.css">
+<link rel="stylesheet" href="../styles/base.css">
+
+<style>
+
+.box{
+width:300px;
+height:200px;
+background:blue;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:20px;
+}
+
+/* Responsive Table */
+.table-container{
+overflow-x:auto;
+margin:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th, td{
+padding:10px;
+border:1px solid #ccc;
+}
+
+th{
+background:#333;
+color:white;
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+.box{
+background:red;
+}
+
+/* Table responsive */
+table, thead, tbody, th, td, tr{
+display:block;
+}
+
+thead{
+display:none;
+}
+
+td{
+position:relative;
+padding-left:50%;
+}
+
+td::before{
+position:absolute;
+left:10px;
+font-weight:bold;
+}
+
+td:nth-child(1)::before{content:"Name";}
+td:nth-child(2)::before{content:"Age";}
+td:nth-child(3)::before{content:"City";}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Media Query Exercises</h1>
+
+<h2>Color Change on Screen Resize</h2>
+<div class="box">Resize Screen</div>
+
+<h2>Responsive Table</h2>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ali</td>
+<td>22</td>
+<td>Lahore</td>
+</tr>
+
+<tr>
+<td>Zeeshan</td>
+<td>21</td>
+<td>Karachi</td>
+</tr>
+
+<tr>
+<td>Ahmed</td>
+<td>23</td>
+<td>Islamabad</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</body>
+</html>

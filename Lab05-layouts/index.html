@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>CSS Layout Techniques Lab</title>
+
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+
+/* Page Layout */
+.container{
+width:90%;
+margin:auto;
+}
+
+/* Sections */
+.section{
+margin-top:30px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Exercise Section */
+.exercises{
+background:#f0f8ff;
+}
+
+/* Layout Section */
+.layouts{
+background:#f9f9f9;
+}
+
+/* Cards */
+.card-container{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:15px;
+}
+
+.card{
+flex:1 1 250px;
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+/* Links */
+.card a{
+text-decoration:none;
+color:#2c3e50;
+font-weight:bold;
+}
+
+/* Header */
+.header{
+background:linear-gradient(to right, #2c3e50, #3498db);
+color:white;
+padding:30px;
+text-align:center;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>CSS Layout Techniques Lab</h1>
+<p>Exercises and Layout Demonstrations</p>
+</div>
+
+<!-- Exercises Section -->
+<div class="section exercises">
+
+<h2>Exercises</h2>
+
+<div class="card-container">
+
+<div class="card">
+<a href="exercises/display-exercises.html">Display Exercises</a>
+</div>
+
+<div class="card">
+<a href="exercises/float-exercises.html">Float Exercises</a>
+</div>
+
+<div class="card">
+<a href="exercises/position-exercises.html">Position Exercises</a>
+</div>
+
+<div class="card">
+<a href="exercises/flexbox-exercises.html">Flexbox Exercises</a>
+</div>
+
+<div class="card">
+<a href="exercises/grid-exercises.html">Grid Exercises</a>
+</div>
+
+<div class="card">
+<a href="exercises/media-query-exercises.html">
+Media Query Exercises <br>(Responsive Table Included)
+</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- Layout Section -->
+<div class="section layouts">
+
+<h2>Layouts</h2>
+
+<div class="card-container">
+
+<div class="card">
+<a href="layouts/magazine-float.html">Magazine Layout</a>
+</div>
+
+<div class="card">
+<a href="layouts/holy-grail-comparison.html">Holy Grail Layout</a>
+</div>
+
+<div class="card">
+<a href="layouts/dashboard-grid.html">Dashboard Layout</a>
+</div>
+
+<div class="card">
+<a href="layouts/portfolio-mixed.html">Portfolio Layout</a>
+</div>
+
+<div class="card">
+<a href="layouts/responsive-demo.html">Responsive Demo</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Portfolio Layout</title>
+
+<link rel="stylesheet" href="../styles/responsive.css">
+<link rel="stylesheet" href="../styles/base.css">
+
+<style>
+
+.nav{
+display:flex;
+justify-content:space-between;
+background:#333;
+color:white;
+padding:15px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:20px;
+}
+
+.project{
+background:#eee;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="nav">
+
+<div>My Portfolio</div>
+
+<div>
+Home | Projects | Contact
+</div>
+
+</div>
+
+<div class="projects">
+
+<div class="project">Project 1</div>
+<div class="project">Project 2</div>
+<div class="project">Project 3</div>
+<div class="project">Project 4</div>
+<div class="project">Project 5</div>
+<div class="project">Project 6</div>
+
+</div>
+
+</body>
+</html>

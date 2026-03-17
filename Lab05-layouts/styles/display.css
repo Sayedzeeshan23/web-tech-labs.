@@ -1,0 +1,28 @@
+.block{
+    display:block;
+    background:lightblue;
+    margin:10px;
+    padding:10px;
+    }
+    
+    .inline{
+    display:inline;
+    background:orange;
+    padding:5px;
+    }
+    
+    .inline-block{
+    display:inline-block;
+    background:lightgreen;
+    width:120px;
+    padding:10px;
+    margin:5px;
+    }
+    
+    .hidden{
+    display:none;
+    }
+    
+    .invisible{
+    visibility:hidden;
+    }

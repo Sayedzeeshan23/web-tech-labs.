@@ -1,0 +1,27 @@
+.left-img{
+    float:left;
+    margin:10px;
+    }
+    
+    .right-img{
+    float:right;
+    margin:10px;
+    }
+    
+    .box1{
+    float:left;
+    width:100px;
+    height:100px;
+    background:red;
+    }
+    
+    .box2{
+    float:left;
+    width:100px;
+    height:100px;
+    background:blue;
+    }
+    
+    .clear{
+    clear:both;
+    }

@@ -1,0 +1,46 @@
+.box{
+    width:300px;
+    height:200px;
+    background:blue;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    }
+    
+    /* Tablet */
+    @media(max-width:768px){
+    .box{
+    background:green;
+    }
+    }
+    
+    /* Mobile */
+    @media(max-width:480px){
+    .box{
+    background:red;
+    }
+    }
+
+    /* Dark Mode */
+
+@media (prefers-color-scheme: dark){
+
+    body{
+    background:#121212;
+    color:white;
+    }
+    
+    h1, h2{
+    color:white;
+    }
+    
+    .box{
+    background:#444;
+    }
+    
+    table{
+    color:white;
+    }
+    
+    }
